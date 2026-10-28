@@ -1,0 +1,18 @@
+{% extends 'base.html' %}{% block title %}Регистрация — ENDURO 161{% endblock %}{% block content %}<section
+    class="auth-wrap">
+    <div class="auth-art">
+        <div class="eyebrow">СВОБОДА БЛИЖЕ, ЧЕМ КАЖЕТСЯ</div>
+        <h1>СТАНЬ<br>ЧАСТЬЮ<br><em>ДВИЖЕНИЯ.</em></h1>
+        <p>Создай аккаунт, чтобы бронировать мотоциклы и следить за своими выездами.</p>
+    </div>
+    <div class="form-card auth-card">
+        <div class="eyebrow">НОВЫЙ АККАУНТ</div>
+        <h2>Регистрация</h2>
+        <form method="post" class="form">{% csrf_token %}{% for field in form %}<div class="field"><label
+                    for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% if field.help_text %}<small
+                    class="help-text">{{ field.help_text|safe }}</small>{% endif %}{% for error in field.errors %}<small
+                    class="error">{{ error }}</small>{% endfor %}</div>{% endfor %}<button
+                class="btn btn-primary full-btn" type="submit">Создать аккаунт ↗</button></form>
+        <p class="auth-switch">Уже с нами? <a href="{% url 'login' %}">Войти в аккаунт</a></p>
+    </div>
+</section>{% endblock %}

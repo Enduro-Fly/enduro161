@@ -1,0 +1,82 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Мои бронирования — ENDURO 161{% endblock %}
+
+{% block content %}
+<section class="section bookings-section">
+    <div class="section-head">
+        <div>
+            <div class="eyebrow">ЛИЧНЫЙ КАБИНЕТ / 01</div>
+            <h1>МОИ <em>БРОНИРОВАНИЯ</em></h1>
+        </div>
+        <a class="btn btn-primary" href="{% url 'create' %}">
+            Забронировать ↗
+        </a>
+    </div>
+
+    {% if bookings %}
+        <div class="bookings-list">
+            {% for item in bookings %}
+                <article class="booking-card">
+                    <div class="booking-info">
+                        <div class="eyebrow">БРОНИРОВАНИЕ #{{ item.id }}</div>
+                        <h3>{{ item.bike_name }}</h3>
+                        <p>Дата: {{ item.datetime|date:"d.m.Y H:i" }}</p>
+                        <p>Длительность: {{ item.duration }} ч.</p>
+                        <p>Статус: {{ item.status }}</p>
+                    </div>
+
+                    <div class="booking-price">
+                        <strong>{{ item.price }} ₽</strong>
+                        <small>{{ item.get_payment_display }}</small>
+                    </div>
+
+                    <div class="booking-actions">
+                        {% if item.status == 'в обработке' and item.datetime > now %}
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="action" value="cancel">
+                                <input type="hidden" name="booking_id" value="{{ item.id }}">
+                                <button class="btn btn-outline" type="submit">
+                                    Отменить
+                                </button>
+                            </form>
+                        {% endif %}
+
+                        {% if item.status == 'исполнена' %}
+                            {% if item.review %}
+                                <p class="review-existing">
+                                    «{{ item.review.text }}»
+                                </p>
+                            {% else %}
+                                <form method="post" class="review-form">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="action" value="review">
+                                    <input type="hidden" name="booking_id" value="{{ item.id }}">
+                                    <textarea name="review"
+                                              placeholder="Как прошёл выезд?"
+                                              required></textarea>
+                                    <button class="btn btn-outline" type="submit">
+                                        Оставить отзыв
+                                    </button>
+                                </form>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <span>✳</span>
+            <h2>Пока без приключений</h2>
+            <p>У тебя ещё нет бронирований. Самое время это исправить.</p>
+            <a class="btn btn-primary" href="{% url 'create' %}">
+                Выбрать мотоцикл ↗
+            </a>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,63 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}ENDURO 161 — прокат эндуро{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="{% url 'home' %}">
+            <span class="brand-mark">E</span>
+            <span>ENDURO <b>161</b><small>МОТОПРОКАТ · РОСТОВ</small></span>
+        </a>
+
+        <nav>
+            <a href="{% url 'home' %}#fleet">Мотоциклы</a>
+            <a href="{% url 'home' %}#about">О нас</a>
+
+            {% if user.is_authenticated %}
+                <a href="{% url 'bookings' %}">Мои брони</a>
+                <a class="nav-cta" href="{% url 'create' %}">Забронировать ↗</a>
+
+                <form method="post" action="{% url 'logout' %}" class="logout">
+                    {% csrf_token %}
+                    <button type="submit">Выйти</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}">Войти</a>
+                <a class="nav-cta" href="{% url 'register' %}">Регистрация ↗</a>
+            {% endif %}
+        </nav>
+
+        <button class="menu-toggle"
+                onclick="document.querySelector('nav').classList.toggle('nav-open')">
+            ☰
+        </button>
+    </header>
+
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <a class="brand" href="{% url 'home' %}">
+            <span class="brand-mark">E</span>
+            <span>ENDURO <b>161</b><small>ВЫБИРАЙ МАРШРУТ. МЫ ДАДИМ МОТОЦИКЛ.</small></span>
+        </a>
+        <span>© 2026 ENDURO 161 · Ростовская область</span>
+        <a href="{% url 'create' %}">В путь →</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero hero-with-bg">
+    <div class="hero-background"></div>
+    <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> ПРОКАТ ЭНДУРО В РОСТОВЕ</div>
+        <h1>ГРЯЗЬ.<br><em>ГАЗ.</em><br>СВОБОДА.</h1>
+        <p>Твой следующий маршрут начинается здесь. Подберём эндуро под твой уровень — от первого выезда до жёсткого
+            бездорожья.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="{% url 'create' %}">Выбрать мотоцикл
+                <span>↗</span></a><a class="text-link" href="#fleet">Смотреть парк <span>↓</span></a></div>
+        <div class="hero-stats">
+            <div><strong>04</strong><span>мотоцикла в парке</span></div>
+            <div><strong>24/7</strong><span>бронирование онлайн</span></div>
+            <div><strong>100%</strong><span>заряд на приключения</span></div>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <video class="hero-video" autoplay muted loop playsinline
+            poster="{% static 'images/zastavki-gas-kvas-com-ygra-p-zastavki-enduro-4.jpg' %}">
+            <source src="{% static 'videos/enduro.mp4' %}" type="video/mp4">
+        </video>
+        <div class="visual-tag"><span>01 / 04</span><b>READY TO RIDE</b></div>
+        <div class="vertical-label">RIDE YOUR OWN LINE — 161</div>
+    </div>
+    <div class="hero-bottom">НЕ ЖДИ ИДЕАЛЬНОГО ДНЯ. СОЗДАЙ ЕГО САМ.</div>
+</section>
+<section id="fleet" class="section fleet-section">
+    <div class="section-head">
+        <div>
+            <div class="eyebrow">01 / НАШ ПАРК</div>
+            <h2>ВЫБЕРИ СВОЙ <em>ЭНДУРО</em></h2>
+        </div>
+        <p>Обслуженные мотоциклы, экипировка и никакой лишней суеты. Только ты и маршрут.</p>
+    </div>
+    <div class="bike-grid">{% for bike in bikes %}<article class="bike-card">
+            <div class="bike-image"><img src="{{ bike.image }}" alt="{{ bike.name }}"><span class="bike-tag">{{ bike.tag
+                    }}</span><span class="bike-number">0{{ forloop.counter }}</span></div>
+            <div class="bike-info">
+                <div class="bike-kind">{{ bike.kind }}</div>
+                <h3>{{ bike.name }}</h3>
+                <p>{{ bike.desc }}</p>
+                <div class="bike-bottom">
+                    <div class="price">{{ bike.price }} ₽ <small>/ час</small></div><a class="round-link"
+                        href="{% url 'create' %}" aria-label="Забронировать {{ bike.name }}">↗</a>
+                </div>
+            </div>
+        </article>{% endfor %}</div>
+    <div class="fleet-note"><span>✳</span> В стоимость входит инструктаж перед выездом. Экипировку можно уточнить при
+        бронировании.</div>
+</section>
+<section id="about" class="about-section">
+    <div class="about-number">02</div>
+    <div>
+        <div class="eyebrow">ПОЧЕМУ ENDURO 161</div>
+        <h2>МЫ ЗА ТО, ЧТОБЫ<br><em>ТЫ ПРОСТО ЕХАЛ.</em></h2>
+    </div>
+    <div class="about-features">
+        <div><span>01</span>
+            <h3>Техника готова</h3>
+            <p>Проверяем мотоциклы перед каждым выездом.</p>
+        </div>
+        <div><span>02</span>
+            <h3>Под любой уровень</h3>
+            <p>Поможем подобрать байк под твой опыт.</p>
+        </div>
+        <div><span>03</span>
+            <h3>Бронь без звонков</h3>
+            <p>Выбирай дату и время прямо на сайте.</p>
+        </div>
+    </div><a class="btn btn-primary" href="{% url 'create' %}">Забронировать выезд <span>↗</span></a>
+</section>
+<section class="final-cta">
+    <div class="eyebrow">ТВОЙ МАРШРУТ ЖДЁТ</div>
+    <h2>ПОРА <em>В ГРЯЗЬ.</em></h2><a class="btn btn-light" href="{% url 'create' %}">Забронировать мотоцикл ↗</a>
+</section>
+{% endblock %}

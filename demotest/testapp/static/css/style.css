@@ -1,0 +1,1298 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #10110f;
+    --panel: #191b18;
+    --panel2: #20221e;
+    --text: #f2f1e9;
+    --muted: #a5a79d;
+    --line: #35372f;
+    --lime: #d7ff3f;
+    --orange: #ff6339
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Manrope, Arial, sans-serif
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit
+}
+
+.site-header {
+    height: 88px;
+    max-width: 1440px;
+    margin: auto;
+    padding: 0 5.5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #292b25;
+    position: relative;
+    z-index: 4
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-weight: 800;
+    letter-spacing: -.5px
+}
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+    background: var(--lime);
+    color: #111;
+    width: 42px;
+    height: 42px;
+    font-family: 'Barlow Condensed';
+    font-size: 29px;
+    font-weight: 900;
+    transform: skew(-7deg)
+}
+
+.brand small {
+    display: block;
+    color: var(--muted);
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    margin-top: 3px
+}
+
+.brand b {
+    color: var(--lime)
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    font-size: 12px;
+    font-weight: 700
+}
+
+nav>a:not(.nav-cta) {
+    color: #c7c8c0
+}
+
+nav>a:hover {
+    color: var(--lime)
+}
+
+.nav-cta {
+    padding: 13px 17px;
+    background: var(--lime);
+    color: #111 !important
+}
+
+.logout {
+    margin: 0
+}
+
+.logout button {
+    background: none;
+    border: 0;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 12px
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    color: white;
+    border: 0;
+    font-size: 25px
+}
+
+.hero {
+    max-width: 1440px;
+    margin: auto;
+    min-height: 690px;
+    padding: 75px 5.5% 35px;
+    display: grid;
+    grid-template-columns: 1fr 1.02fr;
+    position: relative;
+    gap: 25px
+}
+
+.hero-copy {
+    padding-top: 10px;
+    position: relative;
+    z-index: 1
+}
+
+.eyebrow {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--lime);
+    display: flex;
+    align-items: center;
+    gap: 9px
+}
+
+.pulse {
+    width: 7px;
+    height: 7px;
+    background: var(--lime);
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px #d7ff3f1c
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0
+}
+
+.hero h1,
+.auth-art h1,
+.page-intro h1 {
+    font-family: 'Barlow Condensed', Impact, sans-serif;
+    font-size: clamp(72px, 9vw, 130px);
+    line-height: .78;
+    letter-spacing: -2px;
+    margin: 34px 0 25px;
+    font-weight: 900
+}
+
+.hero h1 em,
+.section h2 em,
+.about-section h2 em,
+.final-cta h2 em,
+.page-intro h1 em,
+.auth-art h1 em {
+    font-style: normal;
+    color: var(--lime)
+}
+
+.hero-copy>p,
+.auth-art>p,
+.page-intro>p {
+    max-width: 430px;
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 13px
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 28px
+}
+
+.btn {
+    border: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    padding: 16px 20px;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform .2s, background .2s
+}
+
+.btn:hover {
+    transform: translateY(-2px)
+}
+
+.btn-primary {
+    background: var(--lime);
+    color: #12130f
+}
+
+.btn-primary span {
+    font-size: 18px
+}
+
+.text-link {
+    font-size: 11px;
+    font-weight: 800
+}
+
+.text-link span {
+    color: var(--lime);
+    margin-left: 8px
+}
+
+.hero-stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 54px
+}
+
+.hero-stats div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px
+}
+
+.hero-stats strong {
+    font-family: 'Barlow Condensed';
+    font-size: 27px
+}
+
+.hero-stats span {
+    font-size: 9px;
+    color: var(--muted)
+}
+
+.hero-visual {
+    min-height: 500px;
+    position: relative;
+    align-self: stretch;
+    background: #252a21;
+    overflow: hidden
+}
+
+.hero-visual:after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, #10110f99, transparent 55%), linear-gradient(90deg, #10110f22, transparent)
+}
+
+.hero-visual img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    filter: saturate(.8)
+}
+
+.visual-tag {
+    position: absolute;
+    z-index: 1;
+    bottom: 26px;
+    left: 26px;
+    right: 26px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 1.5px
+}
+
+.visual-tag span {
+    color: var(--lime)
+}
+
+.vertical-label {
+    position: absolute;
+    z-index: 1;
+    right: 13px;
+    top: 25px;
+    writing-mode: vertical-rl;
+    font-size: 9px;
+    letter-spacing: 2px
+}
+
+.hero-bottom {
+    grid-column: 1/-1;
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--muted)
+}
+
+.section {
+    max-width: 1440px;
+    margin: auto;
+    padding: 95px 5.5%
+}
+
+.fleet-section {
+    background: #151613;
+    max-width: none
+}
+
+.fleet-section>.section-head,
+.fleet-section>.bike-grid,
+.fleet-section>.fleet-note {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 38px
+}
+
+.section h2,
+.about-section h2 {
+    font-family: 'Barlow Condensed';
+    font-size: clamp(38px, 5vw, 65px);
+    line-height: .95;
+    margin: 15px 0 0
+}
+
+.section-head>p {
+    max-width: 350px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+    margin-bottom: 4px
+}
+
+.bike-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px
+}
+
+.bike-card {
+    background: var(--panel);
+    border: 1px solid #2b2d26;
+    transition: transform .25s, border-color .25s
+}
+
+.bike-card:hover {
+    transform: translateY(-5px);
+    border-color: #697b25
+}
+
+.bike-image {
+    height: 210px;
+    position: relative;
+    overflow: hidden;
+    background: #2c3028
+}
+
+.bike-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s;
+    filter: saturate(.75)
+}
+
+.bike-card:hover .bike-image img {
+    transform: scale(1.05)
+}
+
+.bike-tag {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    background: var(--lime);
+    color: #111;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    padding: 7px 9px
+}
+
+.bike-number {
+    position: absolute;
+    right: 12px;
+    bottom: 7px;
+    font-family: 'Barlow Condensed';
+    font-size: 40px;
+    color: #ffffff80
+}
+
+.bike-info {
+    padding: 21px
+}
+
+.bike-kind {
+    font-size: 9px;
+    color: var(--lime);
+    letter-spacing: 1.5px;
+    font-weight: 800
+}
+
+.bike-info h3,
+.booking-main h3 {
+    font-family: 'Barlow Condensed';
+    font-size: 27px;
+    margin: 9px 0
+}
+
+.bike-info p {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.7;
+    min-height: 38px
+}
+
+.bike-bottom {
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.price {
+    font-weight: 800;
+    font-size: 18px
+}
+
+.price small {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--muted)
+}
+
+.round-link {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    background: var(--lime);
+    color: #111;
+    border-radius: 50%;
+    font-size: 18px
+}
+
+.fleet-note {
+    margin-top: 24px;
+    font-size: 10px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.fleet-note span {
+    font-size: 22px;
+    color: var(--lime)
+}
+
+.about-section {
+    max-width: 1440px;
+    margin: auto;
+    padding: 105px 5.5%;
+    display: grid;
+    grid-template-columns: 60px 1fr 1fr;
+    gap: 30px;
+    align-items: start
+}
+
+.about-number {
+    font-family: 'Barlow Condensed';
+    font-size: 50px;
+    color: var(--lime)
+}
+
+.about-features {
+    grid-row: span 2;
+    display: grid;
+    gap: 0
+}
+
+.about-features>div {
+    padding: 17px 0;
+    border-bottom: 1px solid var(--line)
+}
+
+.about-features span {
+    font-size: 9px;
+    color: var(--lime)
+}
+
+.about-features h3 {
+    font-size: 14px;
+    margin: 8px 0
+}
+
+.about-features p {
+    font-size: 11px;
+    color: var(--muted);
+    margin: 0
+}
+
+.about-section>.btn {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 10px
+}
+
+.final-cta {
+    text-align: center;
+    padding: 90px 20px;
+    background: linear-gradient(120deg, #20251a, #171914)
+}
+
+.final-cta h2 {
+    font-family: 'Barlow Condensed';
+    font-size: clamp(60px, 10vw, 105px);
+    margin: 20px 0 28px
+}
+
+.btn-light {
+    background: #f2f1e9;
+    color: #111
+}
+
+.site-header+main {
+    min-height: 65vh
+}
+
+footer {
+    border-top: 1px solid var(--line);
+    padding: 30px 5.5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    color: var(--muted);
+    font-size: 10px
+}
+
+footer>.brand {
+    color: var(--text)
+}
+
+footer>a:last-child {
+    color: var(--lime);
+    font-weight: 800
+}
+
+.messages {
+    max-width: 1280px;
+    margin: 15px auto 0;
+    padding: 0 20px
+}
+
+.message {
+    padding: 13px 16px;
+    background: #242c1b;
+    border-left: 3px solid var(--lime);
+    font-size: 12px
+}
+
+.message.error {
+    border-color: var(--orange)
+}
+
+.page-shell {
+    max-width: 1180px;
+    margin: auto;
+    padding: 75px 25px 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px
+}
+
+.page-intro h1 {
+    font-size: clamp(65px, 7vw, 100px)
+}
+
+.booking-hint {
+    border-left: 2px solid var(--lime);
+    padding: 12px 18px;
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 350px
+}
+
+.booking-hint b {
+    font-size: 12px
+}
+
+.booking-hint span {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.7
+}
+
+.form-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 30px
+}
+
+.form-card h2 {
+    font-family: 'Barlow Condensed';
+    font-size: 33px;
+    margin: 0 0 5px
+}
+
+.muted {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 24px
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.field label {
+    font-size: 11px;
+    font-weight: 800;
+    color: #e4e5dc
+}
+
+.field input,
+.field select,
+.field textarea,
+.review-form textarea {
+    width: 100%;
+    background: #11120f;
+    border: 1px solid #393b33;
+    color: var(--text);
+    padding: 13px 14px;
+    border-radius: 0;
+    outline: none;
+    font-size: 12px;
+    min-height: 45px
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    border-color: var(--lime)
+}
+
+.field select option {
+    background: #11120f
+}
+
+.field small {
+    font-size: 10px;
+    color: var(--muted);
+    line-height: 1.5
+}
+
+.field .error,
+.errorlist {
+    color: #ff8567
+}
+
+.help-text ul {
+    padding-left: 17px
+}
+
+.full-btn {
+    width: 100%;
+    margin-top: 4px
+}
+
+.price-estimate {
+    background: #24271e;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+    padding: 13px
+}
+
+.auth-wrap {
+    max-width: 1150px;
+    margin: auto;
+    padding: 75px 25px 100px;
+    display: grid;
+    grid-template-columns: 1fr 430px;
+    gap: 70px;
+    align-items: center;
+    min-height: 650px
+}
+
+.auth-art h1 {
+    font-size: clamp(65px, 7vw, 100px)
+}
+
+.auth-card h2 {
+    margin: 10px 0 25px
+}
+
+.auth-switch {
+    text-align: center;
+    color: var(--muted);
+    font-size: 11px;
+    margin: 22px 0 0
+}
+
+.auth-switch a {
+    color: var(--lime);
+    font-weight: 800
+}
+
+.form-errors {
+    font-size: 11px;
+    color: #ff8567;
+    margin-bottom: 15px
+}
+
+.auth-card .errorlist {
+    margin: 0;
+    font-size: 10px;
+    padding-left: 16px
+}
+
+.bookings-page {
+    min-height: 60vh
+}
+
+.bookings-page .section-head {
+    align-items: center
+}
+
+.bookings-page h1 {
+    font-family: 'Barlow Condensed';
+    font-size: clamp(48px, 6vw, 76px);
+    margin: 12px 0
+}
+
+.booking-list {
+    display: grid;
+    gap: 12px
+}
+
+.booking-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 23px;
+    display: grid;
+    grid-template-columns: 50px 1fr auto auto;
+    align-items: center;
+    gap: 20px
+}
+
+.booking-bike-icon {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    background: #2a3020;
+    color: var(--lime);
+    font-size: 23px
+}
+
+.booking-main h3 {
+    margin: 5px 0
+}
+
+.booking-main p {
+    font-size: 11px;
+    color: var(--muted);
+    margin: 0 0 10px
+}
+
+.status {
+    font-size: 9px;
+    padding: 5px 8px;
+    background: #34372c;
+    color: var(--lime)
+}
+
+.status-отменена {
+    color: #ff8b71
+}
+
+.booking-price {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: right
+}
+
+.booking-price strong {
+    font-size: 17px
+}
+
+.booking-price small {
+    font-size: 10px;
+    color: var(--muted)
+}
+
+.btn-outline {
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--text);
+    padding: 10px 13px
+}
+
+.btn-outline:hover {
+    border-color: var(--lime)
+}
+
+.review-form {
+    display: flex;
+    gap: 8px;
+    align-items: center
+}
+
+.review-form textarea {
+    min-width: 160px;
+    min-height: 38px;
+    padding: 8px
+}
+
+.review-existing {
+    font-size: 11px;
+    color: var(--muted);
+    max-width: 200px
+}
+
+.empty-state {
+    text-align: center;
+    padding: 70px 20px;
+    background: var(--panel);
+    border: 1px solid var(--line)
+}
+
+.empty-state>span {
+    color: var(--lime);
+    font-size: 40px
+}
+
+.empty-state h2 {
+    font-family: 'Barlow Condensed';
+    font-size: 35px;
+    margin: 15px 0
+}
+
+.empty-state p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 25px
+}
+
+@media(max-width:900px) {
+    .site-header {
+        height: 75px
+    }
+
+    nav {
+        gap: 13px;
+        font-size: 10px
+    }
+
+    .hero {
+        padding-top: 50px;
+        min-height: 600px;
+        grid-template-columns: 1fr 1fr
+    }
+
+    .hero h1 {
+        font-size: clamp(70px, 10vw, 100px)
+    }
+
+    .hero-stats {
+        gap: 15px
+    }
+
+    .hero-visual {
+        min-height: 430px
+    }
+
+    .bike-grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .about-section {
+        grid-template-columns: 40px 1fr
+    }
+
+    .about-features {
+        grid-column: 2;
+        grid-row: auto
+    }
+
+    .about-section>.btn {
+        grid-column: 2
+    }
+
+    .page-shell {
+        gap: 30px
+    }
+
+    .auth-wrap {
+        grid-template-columns: 1fr 390px;
+        gap: 30px
+    }
+
+    .booking-card {
+        grid-template-columns: 40px 1fr auto
+    }
+
+    .booking-actions {
+        grid-column: 2/-1;
+        justify-self: start
+    }
+}
+
+@media(max-width:650px) {
+    .site-header {
+        padding: 0 5%;
+        height: 70px
+    }
+
+    .brand-mark {
+        width: 36px;
+        height: 36px
+    }
+
+    .brand {
+        font-size: 13px
+    }
+
+    .menu-toggle {
+        display: block
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #171814;
+        padding: 20px 5%;
+        flex-direction: column;
+        align-items: stretch;
+        border-bottom: 1px solid var(--line)
+    }
+
+    nav.nav-open {
+        display: flex
+    }
+
+    nav .nav-cta {
+        text-align: center
+    }
+
+    .logout button {
+        text-align: left;
+        padding: 10px 0
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        padding: 45px 5% 25px;
+        gap: 30px
+    }
+
+    .hero h1 {
+        font-size: clamp(76px, 19vw, 110px)
+    }
+
+    .hero-visual {
+        min-height: 320px
+    }
+
+    .hero-stats {
+        margin-top: 38px;
+        justify-content: space-between;
+        gap: 10px
+    }
+
+    .hero-stats span {
+        max-width: 90px;
+        line-height: 1.4
+    }
+
+    .hero-bottom {
+        font-size: 8px;
+        line-height: 1.7
+    }
+
+    .section {
+        padding: 65px 5%
+    }
+
+    .section-head {
+        display: block
+    }
+
+    .section-head>p {
+        margin-top: 18px
+    }
+
+    .section h2,
+    .about-section h2 {
+        font-size: 46px
+    }
+
+    .bike-grid {
+        gap: 10px
+    }
+
+    .bike-image {
+        height: 145px
+    }
+
+    .bike-info {
+        padding: 14px
+    }
+
+    .bike-info h3 {
+        font-size: 23px
+    }
+
+    .bike-info p {
+        font-size: 10px;
+        min-height: 54px
+    }
+
+    .price {
+        font-size: 15px
+    }
+
+    .price small {
+        font-size: 9px
+    }
+
+    .bike-tag {
+        top: 8px;
+        left: 8px
+    }
+
+    .about-section {
+        padding: 70px 5%;
+        grid-template-columns: 35px 1fr;
+        gap: 18px
+    }
+
+    .about-number {
+        font-size: 35px
+    }
+
+    .about-features {
+        grid-column: 2
+    }
+
+    .about-section>.btn {
+        grid-column: 2
+    }
+
+    .final-cta {
+        padding: 70px 15px
+    }
+
+    footer {
+        padding: 25px 5%;
+        flex-wrap: wrap
+    }
+
+    footer>span {
+        order: 3;
+        width: 100%
+    }
+
+    .page-shell,
+    .auth-wrap {
+        padding: 45px 5% 70px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px
+    }
+
+    .page-intro h1,
+    .auth-art h1 {
+        font-size: 72px
+    }
+
+    .form-card {
+        padding: 22px;
+        width: 100%
+    }
+
+    .auth-wrap {
+        min-height: 0
+    }
+
+    .auth-art>p {
+        font-size: 12px
+    }
+
+    .bookings-page .section-head {
+        display: flex;
+        align-items: start;
+        flex-direction: column
+    }
+
+    .booking-card {
+        grid-template-columns: 36px 1fr;
+        gap: 14px;
+        padding: 16px
+    }
+
+    .booking-bike-icon {
+        width: 36px;
+        height: 36px
+    }
+
+    .booking-price {
+        grid-column: 2;
+        text-align: left;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between
+    }
+
+    .booking-actions {
+        grid-column: 2;
+        width: 100%
+    }
+
+    .review-form {
+        flex-direction: column;
+        align-items: stretch
+    }
+
+    .review-form textarea {
+        width: 100%
+    }
+
+    .booking-actions form .btn {
+        width: 100%
+    }
+
+    .booking-main h3 {
+        font-size: 24px
+    }
+}
+
+/* Фоновое видео на главной странице */
+.hero-visual {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+
+/* Затемнение для читаемости элементов поверх видео */
+.hero-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.05),
+        rgba(0, 0, 0, 0.35)
+    );
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Фотография на фоне всего первого экрана */
+.hero-with-bg {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(10, 12, 10, 0.88) 0%,
+            rgba(10, 12, 10, 0.65) 45%,
+            rgba(10, 12, 10, 0.25) 100%
+        ),
+        url("/static/images/zastavki-gas-kvas-com-ygra-p-zastavki-enduro-4.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Видео остаётся справа поверх фоновой фотографии */
+.hero-with-bg .hero-visual {
+    position: relative;
+    z-index: 0;
+    background: transparent;
+}
+
+/* Текст и кнопки остаются поверх фонового изображения */
+.hero-with-bg .hero-copy {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Стильная рамка видео */
+.hero-with-bg .hero-visual {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(255, 105, 35, 0.8);
+    border-radius: 18px;
+    background: #111;
+    box-shadow:
+        0 0 15px rgba(255, 105, 35, 0.18),
+        0 0 35px rgba(255, 105, 35, 0.08),
+        inset 0 0 15px rgba(255, 105, 35, 0.08);
+}
+
+/* Видео внутри рамки */
+.hero-with-bg .hero-video {
+    border-radius: 15px;
+    transition: transform 0.5s ease;
+}
+
+/* Лёгкое увеличение при наведении */
+.hero-with-bg .hero-visual:hover .hero-video {
+    transform: scale(1.035);
+}
+
+/* Декоративный блик на рамке */
+.hero-with-bg .hero-visual::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    pointer-events: none;
+    z-index: 2;
+}
+
